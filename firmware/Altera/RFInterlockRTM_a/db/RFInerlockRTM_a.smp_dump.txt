@@ -1,0 +1,15 @@
+
+State Machine - |RFInterlockRTM_a|PWMLkup_s
+Name PWMLkup_s.UFM_Shift_s PWMLkup_s.UFM_Data_s PWMLkup_s.UFM_Wait_s PWMLkup_s.UFM_Idle_s 
+PWMLkup_s.UFM_Idle_s 0 0 0 0 
+PWMLkup_s.UFM_Wait_s 0 0 1 1 
+PWMLkup_s.UFM_Data_s 0 1 0 1 
+PWMLkup_s.UFM_Shift_s 1 0 0 1 
+
+State Machine - |RFInterlockRTM_a|qspi:u_spi|QSPI_State
+Name QSPI_State.Writet QSPI_State.Read1 QSPI_State.Readt QSPI_State.CMDIn QSPI_State.Idle 
+QSPI_State.Idle 0 0 0 0 0 
+QSPI_State.CMDIn 0 0 0 1 1 
+QSPI_State.Readt 0 0 1 0 1 
+QSPI_State.Read1 0 1 0 0 1 
+QSPI_State.Writet 1 0 0 0 1 

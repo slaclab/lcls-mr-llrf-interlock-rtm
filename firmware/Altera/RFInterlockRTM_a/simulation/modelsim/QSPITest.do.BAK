@@ -1,0 +1,209 @@
+restart -force
+
+delete wave *
+
+add wave  -radix hex \
+sim:/bpm_a/CLK119Mhz \
+sim:/bpm_a/ClkDivIn \
+sim:/bpm_a/Reset \
+sim:/bpm_a/Cal_Trigger \
+sim:/bpm_a/Trig_Ack \
+sim:/bpm_a/n_QSPI_CS \
+sim:/bpm_a/Qspi_CLK \
+sim:/bpm_a/Qspi_DIn \
+sim:/bpm_a/Qspi_DOut \
+sim:/bpm_a/LMTR_Pulse
+
+add wave  -radix hex sim:/bpm_a/u_BPMReg/*
+
+force -freeze Clk119Mhz 	0 0, 1 {4.2 ns} -r 8.4ns
+force -freeze ClkDivIn	 	1 0, 0 16.8ns -r 33.6ns
+force -freeze qspi_clk 		1 0, 0 {50 ns} -r 100ns
+force -freeze Reset 			1 0, 0 100ns
+
+force -freeze cal_trigger 0
+force -freeze lmtr_pulse 0
+force -freeze qspi_clk 0
+force -freeze trig_ack 0
+force -freeze n_QSPI_CS 1
+force -freeze qspi_din 0
+force -freeze cal_trigger 0
+
+force -freeze sim:/bpm_a/qspi_din  0
+force -freeze sim:/bpm_a/n_qspi_cs 1
+
+force -freeze sim:/bpm_a/reset 1
+run 200ns
+force -freeze sim:/bpm_a/reset 0
+
+run 550ns
+
+# Write Reg 1, Data D4
+force -freeze sim:/bpm_a/n_qspi_cs 0
+
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 60ns
+run 40ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+force -freeze sim:/bpm_a/n_qspi_cs  1
+
+run 1us
+
+# Read Reg 5 data 0
+force -freeze sim:/bpm_a/n_qspi_cs  0
+
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 60ns
+run 40ns
+
+
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+force -freeze sim:/bpm_a/n_qspi_cs  1
+
+run 1us
+
+force -freeze sim:/bpm_a/n_qspi_cs  0
+
+# Write Reg 22 12
+
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 60ns
+run 40ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+
+# Write Reg 6 33
+
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 60ns
+run 40ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  0
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+force -freeze sim:/bpm_a/qspi_din  1
+run 100ns
+
+force -freeze sim:/bpm_a/qspi_din  0
+force -freeze sim:/bpm_a/n_qspi_cs  1
+
+run 1us
+
+

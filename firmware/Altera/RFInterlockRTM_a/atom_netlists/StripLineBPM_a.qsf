@@ -1,0 +1,24 @@
+set_global_assignment -name FAMILY "MAX V"
+set_global_assignment -name DEVICE 5M570ZT144C5
+set_global_assignment -name TOP_LEVEL_ENTITY bpm_a
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "11.1 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:33:24  DECEMBER 07, 2011"
+set_global_assignment -name LAST_QUARTUS_VERSION "11.1 SP1"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name VHDL_FILE ../vhdl/bpm_a.vhd
+set_global_assignment -name SDC_FILE StripLineBPM_a.out.sdc
+set_global_assignment -name VHDL_FILE ../vhdl/trighandshake.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/trigcon.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/qspi.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/prog_strobe.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/oneshot.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/limiter.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/cal_seq.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/bpm_reg.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/bpm_pkg.vhd
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"

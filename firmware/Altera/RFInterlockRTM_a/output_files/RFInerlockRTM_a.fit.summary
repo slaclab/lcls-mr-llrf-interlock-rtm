@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sat Dec 05 09:06:25 2020
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : RFInerlockRTM_a
+Top-level Entity Name : RFInterlockRTM_a
+Family : MAX V
+Device : 5M2210ZF256C5
+Timing Models : Final
+Total logic elements : 422 / 2,210 ( 19 % )
+Total pins : 37 / 203 ( 18 % )
+Total virtual pins : 0
+UFM blocks : 1 / 1 ( 100 % )

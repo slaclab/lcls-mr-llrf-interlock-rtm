@@ -1,0 +1,372 @@
+m255
+K3
+13
+cModel Technology
+Z0 dZ:\StripLineBPM\Altera\StripLineBPM_a\simulation\modelsim
+Pbpm
+Z1 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z3 DPx3 std 6 textio 0 22 G^o2zK;Vh4eVdKTVo98653
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+w1325714169
+Z5 dZ:\StripLineBPM\Altera\StripLineBPM_a\simulation\modelsim
+8Z:/StripLineBPM/Altera/vhdl/bpm_pkg.vhd
+FZ:/StripLineBPM/Altera/vhdl/bpm_pkg.vhd
+l0
+L31
+Vd0I;`zSPeWZTo154Da4:W3
+Z6 OV;C;10.0c;49
+31
+Z7 o-93 -work work -O0
+Z8 tExplicit 1
+!s100 ID?I>_K2bhWf:cSlcc6Z[1
+!s108 1325716508.373000
+!s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/bpm_pkg.vhd|
+!s107 Z:/StripLineBPM/Altera/vhdl/bpm_pkg.vhd|
+Ebpm_a
+Z9 w1325714408
+R1
+R2
+R3
+R4
+Z10 DPx4 work 3 bpm 0 22 d0I;`zSPeWZTo154Da4:W3
+R5
+Z11 8Z:/StripLineBPM/Altera/vhdl/bpm_a.vhd
+Z12 FZ:/StripLineBPM/Altera/vhdl/bpm_a.vhd
+l0
+L22
+VCXML8A^Ac[H;ZK@`G1cR82
+R6
+31
+Z13 !s108 1325716508.810000
+Z14 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/bpm_a.vhd|
+Z15 !s107 Z:/StripLineBPM/Altera/vhdl/bpm_a.vhd|
+R7
+R8
+!s100 ^465Ug6ded0a]4Cbj[ifd1
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 5 bpm_a 0 22 CXML8A^Ac[H;ZK@`G1cR82
+l102
+L69
+V5JR7@[Q3d`kZdPS19MXJj1
+R6
+31
+R13
+R14
+R15
+R7
+R8
+!s100 g;YJHMn:EBYI2KMSYjid50
+Ebpm_reg
+Z16 w1325707861
+R1
+R2
+R3
+R4
+R10
+R5
+Z17 8Z:/StripLineBPM/Altera/vhdl/bpm_reg.vhd
+Z18 FZ:/StripLineBPM/Altera/vhdl/bpm_reg.vhd
+l0
+L23
+V6WF_kQfKB9Qcdm=aMdd9I0
+!s100 CR?D8_m_F`N8;6n_=:z9@3
+R6
+31
+Z19 !s108 1325716511.134000
+Z20 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/bpm_reg.vhd|
+Z21 !s107 Z:/StripLineBPM/Altera/vhdl/bpm_reg.vhd|
+R7
+R8
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 7 bpm_reg 0 22 6WF_kQfKB9Qcdm=aMdd9I0
+l78
+L61
+V@leXC7nJV[;A3UIi_>MV?1
+!s100 eJ6R441;9W_[f>>WRfUER2
+R6
+31
+R19
+R20
+R21
+R7
+R8
+Ecal_seq
+Z22 w1325716422
+R1
+R2
+R3
+R4
+R10
+R5
+Z23 8Z:/StripLineBPM/Altera/vhdl/cal_seq.vhd
+Z24 FZ:/StripLineBPM/Altera/vhdl/cal_seq.vhd
+l0
+L29
+VWkbS1IDXUN2kLEYofDUgZ3
+R6
+31
+Z25 !s108 1325716510.697000
+Z26 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/cal_seq.vhd|
+Z27 !s107 Z:/StripLineBPM/Altera/vhdl/cal_seq.vhd|
+R7
+R8
+!s100 SMZXjgThk@IZYa7R_=Ggf2
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 7 cal_seq 0 22 WkbS1IDXUN2kLEYofDUgZ3
+l81
+L50
+V<XogRG5M@A4mL0bX[knRE2
+R6
+31
+R25
+R26
+R27
+R7
+R8
+!s100 9Mgj0V8d93=L9F?aN8PDR2
+Elimiter
+Z28 w1325714195
+R1
+R2
+R3
+R4
+R10
+R5
+Z29 8Z:/StripLineBPM/Altera/vhdl/limiter.vhd
+Z30 FZ:/StripLineBPM/Altera/vhdl/limiter.vhd
+l0
+L25
+VcU:Z?CLYAP44d_>M@5P=W0
+R6
+31
+Z31 !s108 1325716510.307000
+Z32 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/limiter.vhd|
+Z33 !s107 Z:/StripLineBPM/Altera/vhdl/limiter.vhd|
+R7
+R8
+!s100 3dW0G48`MbziMXbCZ6aCb3
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 7 limiter 0 22 cU:Z?CLYAP44d_>M@5P=W0
+l48
+L36
+VDPWQm==KF@3lC@NW:Udm00
+R6
+31
+R31
+R32
+R33
+R7
+R8
+!s100 MloCNOlk7Y6U:V<L8IPO<0
+Eoneshot
+Z34 w1163801256
+R1
+R2
+R3
+R4
+R10
+R5
+Z35 8Z:/StripLineBPM/Altera/vhdl/oneshot.vhd
+Z36 FZ:/StripLineBPM/Altera/vhdl/oneshot.vhd
+l0
+L35
+VQT=fQ?OZ^a9:?dOSgYY:R3
+R6
+31
+Z37 !s108 1325716509.886000
+Z38 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/oneshot.vhd|
+Z39 !s107 Z:/StripLineBPM/Altera/vhdl/oneshot.vhd|
+R7
+R8
+!s100 FiQCXiPDSCznmOMhL4IND1
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 7 oneshot 0 22 QT=fQ?OZ^a9:?dOSgYY:R3
+l62
+L48
+Vj^WVGIe7md>>C_CW@]DbU3
+R6
+31
+R37
+R38
+R39
+R7
+R8
+!s100 ZZE32WAUjF`ZCh<>7hLEH0
+Eprog_strobe
+Z40 w1325714730
+R1
+R2
+R3
+R4
+R10
+R5
+Z41 8Z:/StripLineBPM/Altera/vhdl/prog_strobe.vhd
+Z42 FZ:/StripLineBPM/Altera/vhdl/prog_strobe.vhd
+l0
+L35
+VohYmHU=<IaJ`6Y_6YHTOe2
+R6
+31
+Z43 !s108 1325716509.558000
+Z44 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/prog_strobe.vhd|
+Z45 !s107 Z:/StripLineBPM/Altera/vhdl/prog_strobe.vhd|
+R7
+R8
+!s100 ;jBfXi=zYn@WINccGd<101
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 11 prog_strobe 0 22 ohYmHU=<IaJ`6Y_6YHTOe2
+l62
+L46
+V9g=1ZRNFQaBk^2<dWNjlB2
+R6
+31
+R43
+R44
+R45
+R7
+R8
+!s100 Fnc;<RhVXQjZ3cPDSZ]N`0
+Eqspi
+Z46 w1325629572
+R1
+R2
+R3
+R4
+R5
+Z47 8Z:/StripLineBPM/Altera/vhdl/qspi.vhd
+Z48 FZ:/StripLineBPM/Altera/vhdl/qspi.vhd
+l0
+L44
+V=[eznonH89bYh^@3fkSRC3
+R6
+31
+Z49 !s108 1325716508.030000
+Z50 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/qspi.vhd|
+Z51 !s107 Z:/StripLineBPM/Altera/vhdl/qspi.vhd|
+R7
+R8
+!s100 aMahz4J?3LfUTlVfz`]Sl2
+Abehaviour
+R1
+R2
+R3
+R4
+DEx4 work 4 qspi 0 22 =[eznonH89bYh^@3fkSRC3
+l82
+L62
+VG;0[M;^JR<SF`9Hl^Ile?3
+R6
+31
+R49
+R50
+R51
+R7
+R8
+!s100 MA<B=]<Q=O99d1zXU?WGD3
+Etrigcon
+Z52 w1325612447
+R2
+R1
+R3
+R4
+R5
+Z53 8Z:/StripLineBPM/Altera/vhdl/trigcon.vhd
+Z54 FZ:/StripLineBPM/Altera/vhdl/trigcon.vhd
+l0
+L30
+VValeR0;P?`GO[?b;cok?;1
+R6
+31
+Z55 !s108 1325716507.484000
+Z56 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/trigcon.vhd|
+Z57 !s107 Z:/StripLineBPM/Altera/vhdl/trigcon.vhd|
+R7
+R8
+!s100 2HKZGH73LU[1XgW:[@8i52
+Abehavioral
+R2
+R1
+R3
+R4
+DEx4 work 7 trigcon 0 22 ValeR0;P?`GO[?b;cok?;1
+l46
+L41
+V=iJSS7P9nTVD4bf`45[U53
+R6
+31
+R55
+R56
+R57
+R7
+R8
+!s100 lX>V58G:Jz?HR0WOdG9G`2
+Etrighandshake
+Z58 w1323383755
+R1
+R2
+R3
+R4
+R10
+R5
+Z59 8Z:/StripLineBPM/Altera/vhdl/trighandshake.vhd
+Z60 FZ:/StripLineBPM/Altera/vhdl/trighandshake.vhd
+l0
+L25
+V@RHP^8QG:=ocDKOh71NSR3
+R6
+31
+Z61 !s108 1325716509.200000
+Z62 !s90 -reportprogress|300|-93|-work|work|Z:/StripLineBPM/Altera/vhdl/trighandshake.vhd|
+Z63 !s107 Z:/StripLineBPM/Altera/vhdl/trighandshake.vhd|
+R7
+R8
+!s100 Y?>UmXaVRcm^jjV:9eIL?0
+Abehaviour
+R1
+R2
+R3
+R4
+R10
+DEx4 work 13 trighandshake 0 22 @RHP^8QG:=ocDKOh71NSR3
+l41
+L36
+V?9D8NP7Ch3CEVP8hMI<US0
+R6
+31
+R61
+R62
+R63
+R7
+R8
+!s100 j9K3M=IXKXfoXOD2KEKg51

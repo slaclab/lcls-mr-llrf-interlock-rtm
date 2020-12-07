@@ -1,0 +1,19 @@
+#restart -force
+
+#delete wave *
+
+add wave  sim:/rfinterlockrtm_a/Clock
+#add wave  sim:/rfinterlockrtm_a/Reset
+add wave  sim:/rfinterlockrtm_a/sync_nbusy
+add wave  sim:/rfinterlockrtm_a/sync_data_valid
+add wave  -radix hex  sim:/rfinterlockrtm_a/TestCntr
+add wave  sim:/rfinterlockrtm_a/TestPoint
+
+add wave -radix hex sim:/rfinterlockrtm_a/PWM0_SR
+add wave -radix hex sim:/rfinterlockrtm_a/PWM1_SR
+add wave sim:/rfinterlockrtm_a/PWMCntr
+add wave sim:/rfinterlockrtm_a/CLK245KhzEn
+
+force -freeze sim:/rfinterlockrtm_a/Clock 1 0, 0 {4 ns} -r 8 ns
+#force -freeze sim:/rfinterlockrtm_a/Reset 1 {0 ns} , 0 {100 ns}
+run 30us

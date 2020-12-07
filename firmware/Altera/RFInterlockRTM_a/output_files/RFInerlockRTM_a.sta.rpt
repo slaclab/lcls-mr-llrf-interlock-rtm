@@ -1,0 +1,798 @@
+Timing Analyzer report for RFInerlockRTM_a
+Sat Dec 05 09:06:31 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Fmax Summary
+  7. Setup Summary
+  8. Hold Summary
+  9. Recovery Summary
+ 10. Removal Summary
+ 11. Minimum Pulse Width Summary
+ 12. Setup: 'CMD_CLK'
+ 13. Setup: 'clock'
+ 14. Hold: 'CMD_CLK'
+ 15. Hold: 'clock'
+ 16. Setup Transfers
+ 17. Hold Transfers
+ 18. Report TCCS
+ 19. Report RSKM
+ 20. Unconstrained Paths Summary
+ 21. Clock Status Summary
+ 22. Unconstrained Input Ports
+ 23. Unconstrained Output Ports
+ 24. Unconstrained Input Ports
+ 25. Unconstrained Output Ports
+ 26. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; RFInerlockRTM_a                                     ;
+; Device Family         ; MAX V                                               ;
+; Device Name           ; 5M2210ZF256C5                                       ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------+
+; SDC File List                                           ;
++---------------------+--------+--------------------------+
+; SDC File Path       ; Status ; Read at                  ;
++---------------------+--------+--------------------------+
+; RFInerlockRTM_a.sdc ; OK     ; Sat Dec 05 09:06:31 2020 ;
++---------------------+--------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                              ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets     ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+; clock      ; Base ; 8.000  ; 125.0 MHz ; 0.000 ; 4.000  ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clock }   ;
+; CMD_CLK    ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Cmd_Clk } ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------+
+
+
++--------------------------------------------------+
+; Fmax Summary                                     ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 81.31 MHz  ; 81.31 MHz       ; CMD_CLK    ;      ;
+; 131.34 MHz ; 131.34 MHz      ; clock      ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------+
+; Setup Summary                    ;
++---------+--------+---------------+
+; Clock   ; Slack  ; End Point TNS ;
++---------+--------+---------------+
+; CMD_CLK ; -1.240 ; -1.240        ;
+; clock   ; 0.386  ; 0.000         ;
++---------+--------+---------------+
+
+
++---------------------------------+
+; Hold Summary                    ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; CMD_CLK ; 1.382 ; 0.000         ;
+; clock   ; 1.394 ; 0.000         ;
++---------+-------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++---------------------------------+
+; Minimum Pulse Width Summary     ;
++---------+-------+---------------+
+; Clock   ; Slack ; End Point TNS ;
++---------+-------+---------------+
+; clock   ; 3.734 ; 0.000         ;
+; CMD_CLK ; 9.734 ; 0.000         ;
++---------+-------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'CMD_CLK'                                                                                                                                            ;
++--------+---------------------------------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+; -1.240 ; SLEDInterface:u_Sled|iSLEDFault                   ; qspi:u_spi|iDout         ; clock        ; CMD_CLK     ; 2.000        ; 0.000      ; 2.907      ;
+; -1.072 ; ModFlt:u_ModFlt|ModFaultOut                       ; qspi:u_spi|iDout         ; clock        ; CMD_CLK     ; 2.000        ; 0.000      ; 2.739      ;
+; -0.734 ; FastFaultInterface:u_FastFault|iFaultOut          ; qspi:u_spi|iDout         ; clock        ; CMD_CLK     ; 2.000        ; 0.000      ; 2.401      ;
+; 0.175  ; ModFlt:u_ModFlt|ModFaultOut                       ; qspi:u_spi|DataOutSR[6]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 3.492      ;
+; 1.161  ; SLEDInterface:u_Sled|SLEDStatusOut[1]             ; qspi:u_spi|DataOutSR[8]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.506      ;
+; 1.333  ; SLEDInterface:u_Sled|SLEDStatusOut[5]             ; qspi:u_spi|DataOutSR[12] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.334      ;
+; 1.351  ; FastFaultInterface:u_FastFault|iFaultVectorOut[3] ; qspi:u_spi|DataOutSR[4]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.316      ;
+; 1.360  ; SLEDInterface:u_Sled|SLEDStatusOut[8]             ; qspi:u_spi|DataOutSR[15] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.307      ;
+; 1.381  ; SLEDInterface:u_Sled|SLEDStatusOut[6]             ; qspi:u_spi|DataOutSR[13] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.286      ;
+; 1.386  ; SLEDInterface:u_Sled|SLEDStatusOut[3]             ; qspi:u_spi|DataOutSR[10] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.281      ;
+; 1.392  ; SLEDInterface:u_Sled|SLEDStatusOut[4]             ; qspi:u_spi|DataOutSR[11] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.275      ;
+; 1.399  ; SLEDInterface:u_Sled|SLEDStatusOut[7]             ; qspi:u_spi|DataOutSR[14] ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.268      ;
+; 1.408  ; SLEDInterface:u_Sled|SLEDStatusOut[2]             ; qspi:u_spi|DataOutSR[9]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.259      ;
+; 1.408  ; FastFaultInterface:u_FastFault|iFaultVectorOut[2] ; qspi:u_spi|DataOutSR[3]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.259      ;
+; 1.421  ; SLEDInterface:u_Sled|SLEDStatusOut[0]             ; qspi:u_spi|DataOutSR[7]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 2.246      ;
+; 1.784  ; FastFaultInterface:u_FastFault|iFaultVectorOut[0] ; qspi:u_spi|DataOutSR[1]  ; clock        ; CMD_CLK     ; 4.000        ; 0.000      ; 1.883      ;
+; 3.851  ; qspi:u_spi|Address[5]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 5.816      ;
+; 4.037  ; qspi:u_spi|Address[6]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 5.630      ;
+; 4.147  ; qspi:u_spi|Address[4]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 5.520      ;
+; 4.372  ; qspi:u_spi|Address[1]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 5.295      ;
+; 4.544  ; qspi:u_spi|Address[0]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 5.123      ;
+; 5.131  ; qspi:u_spi|Address[3]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 4.536      ;
+; 5.636  ; qspi:u_spi|Address[2]                             ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 4.031      ;
+; 6.210  ; qspi:u_spi|Load                                   ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 3.457      ;
+; 6.536  ; qspi:u_spi|DataOutSR[15]                          ; qspi:u_spi|iDout         ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 3.131      ;
+; 8.047  ; qspi:u_spi|DoutEn                                 ; qspi:u_spi|iDoutEn       ; CMD_CLK      ; CMD_CLK     ; 10.000       ; 0.000      ; 1.620      ;
+; 10.820 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 8.847      ;
+; 11.000 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 8.667      ;
+; 11.238 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 8.429      ;
+; 11.537 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 8.130      ;
+; 11.558 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 8.109      ;
+; 11.720 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.947      ;
+; 11.774 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.893      ;
+; 11.910 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.757      ;
+; 11.973 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.694      ;
+; 12.063 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.604      ;
+; 12.094 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.573      ;
+; 12.111 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.556      ;
+; 12.115 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[12] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.552      ;
+; 12.117 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[4]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.550      ;
+; 12.139 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.528      ;
+; 12.190 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[3]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.477      ;
+; 12.269 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.398      ;
+; 12.280 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[4]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.387      ;
+; 12.313 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[12] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.354      ;
+; 12.341 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.326      ;
+; 12.346 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.321      ;
+; 12.346 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[1]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.321      ;
+; 12.384 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[3]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.283      ;
+; 12.399 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.268      ;
+; 12.405 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.262      ;
+; 12.410 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.257      ;
+; 12.412 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.255      ;
+; 12.413 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.254      ;
+; 12.414 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.253      ;
+; 12.416 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.251      ;
+; 12.421 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.246      ;
+; 12.424 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.243      ;
+; 12.427 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[8]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.240      ;
+; 12.431 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.236      ;
+; 12.448 ; qspi:u_spi|Address[0]                             ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.219      ;
+; 12.455 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[4]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.212      ;
+; 12.479 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[12] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.188      ;
+; 12.496 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.171      ;
+; 12.514 ; qspi:u_spi|Address[3]                             ; qspi:u_spi|DataOutSR[1]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.153      ;
+; 12.521 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.146      ;
+; 12.526 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.141      ;
+; 12.554 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[3]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.113      ;
+; 12.585 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.082      ;
+; 12.596 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.071      ;
+; 12.596 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.071      ;
+; 12.598 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.069      ;
+; 12.599 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.068      ;
+; 12.607 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.060      ;
+; 12.610 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.057      ;
+; 12.613 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[8]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.054      ;
+; 12.617 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.050      ;
+; 12.622 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.045      ;
+; 12.629 ; qspi:u_spi|Address[6]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.038      ;
+; 12.636 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.031      ;
+; 12.641 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 7.026      ;
+; 12.689 ; qspi:u_spi|Address[1]                             ; qspi:u_spi|DataOutSR[1]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.978      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[15] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[10] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[8]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[7]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.706 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[6]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.961      ;
+; 12.709 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[9]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.958      ;
+; 12.720 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[11] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.947      ;
+; 12.723 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[8]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.944      ;
+; 12.727 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[14] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.940      ;
+; 12.807 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[4]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.860      ;
+; 12.837 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[13] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.830      ;
+; 12.837 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[12] ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.830      ;
+; 12.912 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[3]  ; CMD_CLK      ; CMD_CLK     ; 20.000       ; 0.000      ; 6.755      ;
++--------+---------------------------------------------------+--------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clock'                                                                                                                                                                   ;
++-------+------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                  ; To Node                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.386 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.281      ;
+; 0.386 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.281      ;
+; 0.386 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.281      ;
+; 0.414 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.253      ;
+; 0.414 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.253      ;
+; 0.414 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.253      ;
+; 0.424 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[13]   ; clock        ; clock       ; 8.000        ; 0.000      ; 7.243      ;
+; 0.437 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 7.230      ;
+; 0.466 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 7.201      ;
+; 0.587 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.080      ;
+; 0.587 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.080      ;
+; 0.587 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 7.080      ;
+; 0.727 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.940      ;
+; 0.742 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.925      ;
+; 0.742 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.925      ;
+; 0.742 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.925      ;
+; 0.752 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.915      ;
+; 0.781 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.886      ;
+; 0.863 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.804      ;
+; 0.896 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[8]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.771      ;
+; 0.899 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[10]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.768      ;
+; 0.903 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[5] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.764      ;
+; 0.931 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[5] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.736      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[0]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[1]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[4]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[5]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[6]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[7]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[2]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 0.940 ; SLEDInterface:u_Sled|TimeOutCntr[6]                        ; SLEDInterface:u_Sled|TimeOutCntr[3]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.727      ;
+; 1.043 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[13]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.624      ;
+; 1.045 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[1]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.622      ;
+; 1.074 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.593      ;
+; 1.074 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.593      ;
+; 1.074 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.593      ;
+; 1.074 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[1]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.593      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[0]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[1]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[4]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[5]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[6]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[7]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[2]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.099 ; SLEDInterface:u_Sled|TimeOutCntr[7]                        ; SLEDInterface:u_Sled|TimeOutCntr[3]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.568      ;
+; 1.104 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[5] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.563      ;
+; 1.139 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[0]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.528      ;
+; 1.155 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[9]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.512      ;
+; 1.168 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[0]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.499      ;
+; 1.178 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.489      ;
+; 1.200 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.467      ;
+; 1.211 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[8]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.456      ;
+; 1.213 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[4]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.454      ;
+; 1.214 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[10]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.453      ;
+; 1.239 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[8] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.428      ;
+; 1.239 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[7] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.428      ;
+; 1.239 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[6] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.428      ;
+; 1.241 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[13]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[13]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.426      ;
+; 1.242 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[4]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.425      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[0]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[1]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[4]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[5]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[6]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[7]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[2]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.244 ; SLEDInterface:u_Sled|TimeOutCntr[4]                        ; SLEDInterface:u_Sled|TimeOutCntr[3]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.423      ;
+; 1.258 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[6]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.409      ;
+; 1.259 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[5] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.408      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[0]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[1]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[4]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[5]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[6]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[7]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[2]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.276 ; SLEDInterface:u_Sled|TimeOutCntr[5]                        ; SLEDInterface:u_Sled|TimeOutCntr[3]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.391      ;
+; 1.287 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[6]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.380      ;
+; 1.296 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[4] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.371      ;
+; 1.296 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[3] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.371      ;
+; 1.296 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[2] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.371      ;
+; 1.296 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[1] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.371      ;
+; 1.296 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[0] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.371      ;
+; 1.316 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[6]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.351      ;
+; 1.322 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[7]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.345      ;
+; 1.322 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[4]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.345      ;
+; 1.324 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.324 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[4] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.324 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[3] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.324 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[2] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.324 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[1] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.324 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut ; SLEDInterface:u_Sled|SLEDStatusOut[0] ; clock        ; clock       ; 8.000        ; 0.000      ; 6.343      ;
+; 1.325 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[12]                        ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[6]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.342      ;
+; 1.334 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[3]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[6]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.333      ;
+; 1.347 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[5]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.320      ;
+; 1.358 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[13]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.309      ;
+; 1.376 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[5]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[15]   ; clock        ; clock       ; 8.000        ; 0.000      ; 6.291      ;
+; 1.396 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[2]                         ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[5]    ; clock        ; clock       ; 8.000        ; 0.000      ; 6.271      ;
+; 1.401 ; PWMLkup_s.UFM_Data_s                                       ; PWM1_SR[0]                            ; clock        ; clock       ; 8.000        ; 0.000      ; 6.266      ;
+; 1.401 ; PWMLkup_s.UFM_Data_s                                       ; PWM1_SR[1]                            ; clock        ; clock       ; 8.000        ; 0.000      ; 6.266      ;
++-------+------------------------------------------------------------+---------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'CMD_CLK'                                                                                                                                               ;
++-------+---------------------------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; 1.382 ; qspi:u_spi|DInSr[2]                               ; qspi:u_spi|DInSr[3]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.603      ;
+; 1.382 ; qspi:u_spi|DInSr[3]                               ; qspi:u_spi|DInSr[4]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.603      ;
+; 1.393 ; qspi:u_spi|DataOutSR[13]                          ; qspi:u_spi|DataOutSR[14]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.614      ;
+; 1.394 ; qspi:u_spi|DataOutSR[4]                           ; qspi:u_spi|DataOutSR[5]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.615      ;
+; 1.395 ; qspi:u_spi|DataOutSR[2]                           ; qspi:u_spi|DataOutSR[3]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.616      ;
+; 1.397 ; qspi:u_spi|DataOutSR[10]                          ; qspi:u_spi|DataOutSR[11]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.618      ;
+; 1.400 ; qspi:u_spi|DataOutSR[8]                           ; qspi:u_spi|DataOutSR[9]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.621      ;
+; 1.401 ; qspi:u_spi|DataOutSR[14]                          ; qspi:u_spi|DataOutSR[15]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.622      ;
+; 1.401 ; qspi:u_spi|DataOutSR[6]                           ; qspi:u_spi|DataOutSR[7]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.622      ;
+; 1.404 ; qspi:u_spi|DataOutSR[3]                           ; qspi:u_spi|DataOutSR[4]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.625      ;
+; 1.433 ; qspi:u_spi|DInSr[5]                               ; qspi:u_spi|Address[6]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.654      ;
+; 1.646 ; qspi:u_spi|DInSr[1]                               ; qspi:u_spi|DInSr[2]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.867      ;
+; 1.649 ; qspi:u_spi|Load                                   ; qspi:u_spi|Load             ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.870      ;
+; 1.650 ; qspi:u_spi|DInSr[0]                               ; qspi:u_spi|DInSr[0]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.871      ;
+; 1.662 ; FastFaultInterface:u_FastFault|iFaultVectorOut[0] ; qspi:u_spi|DataOutSR[1]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 1.883      ;
+; 1.701 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.922      ;
+; 1.701 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|QSPI_State.Read1 ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.922      ;
+; 1.735 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.956      ;
+; 1.745 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|Counter[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.966      ;
+; 1.775 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 1.996      ;
+; 1.786 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.007      ;
+; 1.822 ; qspi:u_spi|DInSr[0]                               ; qspi:u_spi|Address[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.043      ;
+; 1.845 ; qspi:u_spi|DataOutSR[1]                           ; qspi:u_spi|DataOutSR[2]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.066      ;
+; 1.914 ; qspi:u_spi|DataOutSR[9]                           ; qspi:u_spi|DataOutSR[10]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.135      ;
+; 1.920 ; qspi:u_spi|DoutEn                                 ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.141      ;
+; 1.937 ; qspi:u_spi|QSPI_State.Readt                       ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.158      ;
+; 1.979 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|Counter[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.200      ;
+; 2.025 ; SLEDInterface:u_Sled|SLEDStatusOut[0]             ; qspi:u_spi|DataOutSR[7]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.246      ;
+; 2.038 ; SLEDInterface:u_Sled|SLEDStatusOut[2]             ; qspi:u_spi|DataOutSR[9]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.259      ;
+; 2.038 ; FastFaultInterface:u_FastFault|iFaultVectorOut[2] ; qspi:u_spi|DataOutSR[3]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.259      ;
+; 2.047 ; SLEDInterface:u_Sled|SLEDStatusOut[7]             ; qspi:u_spi|DataOutSR[14]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.268      ;
+; 2.054 ; SLEDInterface:u_Sled|SLEDStatusOut[4]             ; qspi:u_spi|DataOutSR[11]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.275      ;
+; 2.060 ; SLEDInterface:u_Sled|SLEDStatusOut[3]             ; qspi:u_spi|DataOutSR[10]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.281      ;
+; 2.065 ; SLEDInterface:u_Sled|SLEDStatusOut[6]             ; qspi:u_spi|DataOutSR[13]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.286      ;
+; 2.086 ; SLEDInterface:u_Sled|SLEDStatusOut[8]             ; qspi:u_spi|DataOutSR[15]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.307      ;
+; 2.095 ; FastFaultInterface:u_FastFault|iFaultVectorOut[3] ; qspi:u_spi|DataOutSR[4]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.316      ;
+; 2.109 ; qspi:u_spi|DataOutSR[7]                           ; qspi:u_spi|DataOutSR[8]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.330      ;
+; 2.113 ; SLEDInterface:u_Sled|SLEDStatusOut[5]             ; qspi:u_spi|DataOutSR[12]    ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.334      ;
+; 2.237 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.458      ;
+; 2.243 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|Counter[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.464      ;
+; 2.249 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|Counter[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.470      ;
+; 2.252 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.473      ;
+; 2.275 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.496      ;
+; 2.280 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.501      ;
+; 2.285 ; SLEDInterface:u_Sled|SLEDStatusOut[1]             ; qspi:u_spi|DataOutSR[8]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 2.506      ;
+; 2.315 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.536      ;
+; 2.325 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|Counter[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.546      ;
+; 2.335 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Load             ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.556      ;
+; 2.379 ; qspi:u_spi|DataOutSR[11]                          ; qspi:u_spi|DataOutSR[12]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.600      ;
+; 2.458 ; qspi:u_spi|DataOutSR[12]                          ; qspi:u_spi|DataOutSR[13]    ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.679      ;
+; 2.480 ; qspi:u_spi|DInSr[1]                               ; qspi:u_spi|Address[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.701      ;
+; 2.504 ; qspi:u_spi|DInSr[2]                               ; qspi:u_spi|Address[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.725      ;
+; 2.523 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|DInSr[0]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.744      ;
+; 2.576 ; qspi:u_spi|DInSr[3]                               ; qspi:u_spi|Address[4]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.797      ;
+; 2.643 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.864      ;
+; 2.677 ; qspi:u_spi|DInSr[4]                               ; qspi:u_spi|DInSr[5]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.898      ;
+; 2.681 ; qspi:u_spi|DInSr[4]                               ; qspi:u_spi|Address[5]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 2.902      ;
+; 2.936 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Counter[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.157      ;
+; 2.979 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.200      ;
+; 2.980 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|QSPI_State.Read1 ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.201      ;
+; 3.081 ; qspi:u_spi|DataOutSR[5]                           ; qspi:u_spi|DataOutSR[6]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.302      ;
+; 3.190 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.411      ;
+; 3.197 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.418      ;
+; 3.271 ; ModFlt:u_ModFlt|ModFaultOut                       ; qspi:u_spi|DataOutSR[6]     ; clock        ; CMD_CLK     ; 0.000        ; 0.000      ; 3.492      ;
+; 3.315 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.536      ;
+; 3.316 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|QSPI_State.Read1 ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.537      ;
+; 3.465 ; qspi:u_spi|DInSr[0]                               ; qspi:u_spi|DInSr[1]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.686      ;
+; 3.514 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|Counter[0]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.735      ;
+; 3.515 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|QSPI_State.Read1 ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.736      ;
+; 3.526 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.747      ;
+; 3.533 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.754      ;
+; 3.609 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DataOutSR[1]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.830      ;
+; 3.616 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.837      ;
+; 3.618 ; qspi:u_spi|Counter[3]                             ; qspi:u_spi|Load             ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.839      ;
+; 3.641 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Counter[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.862      ;
+; 3.672 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|QSPI_State.Read1 ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.893      ;
+; 3.696 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.917      ;
+; 3.725 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.946      ;
+; 3.732 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 3.953      ;
+; 3.806 ; qspi:u_spi|Address[2]                             ; qspi:u_spi|DataOutSR[1]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.027      ;
+; 3.882 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|QSPI_State.CMDIn ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.103      ;
+; 3.882 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.103      ;
+; 3.889 ; qspi:u_spi|Counter[0]                             ; qspi:u_spi|QSPI_State.Idle  ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.110      ;
+; 3.905 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|Counter[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.126      ;
+; 3.952 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.173      ;
+; 3.954 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|Load             ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.175      ;
+; 4.017 ; qspi:u_spi|Counter[1]                             ; qspi:u_spi|Counter[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.238      ;
+; 4.026 ; qspi:u_spi|QSPI_State.Readt                       ; qspi:u_spi|DataOutSR[8]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.247      ;
+; 4.044 ; qspi:u_spi|QSPI_State.Idle                        ; qspi:u_spi|DInSr[5]         ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.265      ;
+; 4.118 ; qspi:u_spi|QSPI_State.Read1                       ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.339      ;
+; 4.151 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|DoutEn           ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.372      ;
+; 4.153 ; qspi:u_spi|Counter[2]                             ; qspi:u_spi|Load             ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.374      ;
+; 4.180 ; FastFaultInterface:u_FastFault|iFaultOut          ; qspi:u_spi|iDout            ; clock        ; CMD_CLK     ; -2.000       ; 0.000      ; 2.401      ;
+; 4.219 ; qspi:u_spi|Address[4]                             ; qspi:u_spi|DataOutSR[2]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.440      ;
+; 4.249 ; qspi:u_spi|Address[5]                             ; qspi:u_spi|DataOutSR[6]     ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.470      ;
+; 4.253 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Address[3]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.474      ;
+; 4.253 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Address[2]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.474      ;
+; 4.253 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Address[4]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.474      ;
+; 4.253 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Address[1]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.474      ;
+; 4.253 ; qspi:u_spi|QSPI_State.CMDIn                       ; qspi:u_spi|Address[5]       ; CMD_CLK      ; CMD_CLK     ; 0.000        ; 0.000      ; 4.474      ;
++-------+---------------------------------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clock'                                                                                                                                                                                                                                   ;
++-------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                       ; To Node                                                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.394 ; sync_nbusy[0]                                                                   ; sync_nbusy[1]                                                                   ; clock        ; clock       ; 0.000        ; 0.000      ; 1.615      ;
+; 1.421 ; sync_data_valid[0]                                                              ; sync_data_valid[1]                                                              ; clock        ; clock       ; 0.000        ; 0.000      ; 1.642      ;
+; 1.422 ; SLEDInterface:u_Sled|DeTuning                                                   ; SLEDInterface:u_Sled|SLEDStatusOut[6]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.643      ;
+; 1.429 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[5]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.650      ;
+; 1.646 ; ClkEn_Gen:u_clkDiv|Clk10khzCntr[11]                                             ; ClkEn_Gen:u_clkDiv|iClk10KhzEn                                                  ; clock        ; clock       ; 0.000        ; 0.000      ; 1.867      ;
+; 1.651 ; PWM1_SR[1]                                                                      ; PWM1_SR[0]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.872      ;
+; 1.651 ; PWM1_SR[4]                                                                      ; PWM1_SR[3]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.872      ;
+; 1.652 ; PWM0_SR[4]                                                                      ; PWM0_SR[3]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.873      ;
+; 1.653 ; PWM1_SR[5]                                                                      ; PWM1_SR[4]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.874      ;
+; 1.654 ; PWM1_SR[6]                                                                      ; PWM1_SR[5]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.875      ;
+; 1.654 ; PWM1_SR[7]                                                                      ; PWM1_SR[6]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.875      ;
+; 1.655 ; PWM0_SR[2]                                                                      ; PWM0_SR[1]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.876      ;
+; 1.659 ; TestCntr[0]                                                                     ; TestCntr[0]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 1.880      ;
+; 1.661 ; PWM1_SR[2]                                                                      ; PWM1_SR[1]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.882      ;
+; 1.665 ; PWM0_SR[7]                                                                      ; PWM0_SR[6]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 1.886      ;
+; 1.687 ; ModFlt:u_ModFlt|DeBouncer:DeBounce|counter[3]                                   ; ModFlt:u_ModFlt|DeBouncer:DeBounce|counter[3]                                   ; clock        ; clock       ; 0.000        ; 0.000      ; 1.908      ;
+; 1.687 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[0]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.908      ;
+; 1.694 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[3]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[3]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.915      ;
+; 1.694 ; SLEDInterface:u_Sled|Tuning                                                     ; SLEDInterface:u_Sled|SLEDStatusOut[7]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.915      ;
+; 1.695 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[3]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[3]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.916      ;
+; 1.703 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[3] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[3] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.924      ;
+; 1.705 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[3] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[3] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.926      ;
+; 1.710 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[1]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 1.931      ;
+; 1.711 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|counter[0] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|counter[0] ; clock        ; clock       ; 0.000        ; 0.000      ; 1.932      ;
+; 1.739 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 1.960      ;
+; 1.742 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 1.963      ;
+; 1.747 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[0]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[0]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 1.968      ;
+; 1.749 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 1.970      ;
+; 1.801 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[2]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.022      ;
+; 1.920 ; PWM0_SR[3]                                                                      ; PWM0_SR[2]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.141      ;
+; 1.921 ; PWM0_SR[1]                                                                      ; PWM0_SR[0]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.142      ;
+; 1.926 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|DbOut      ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|DbOut      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.147      ;
+; 1.952 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut                      ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|DbOut                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.173      ;
+; 1.955 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[0] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[0] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.176      ;
+; 1.956 ; PWMCntr[2]                                                                      ; PWMCntr[2]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.177      ;
+; 1.956 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.177      ;
+; 1.962 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.183      ;
+; 1.963 ; PWMCntr[0]                                                                      ; PWMCntr[0]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.184      ;
+; 1.977 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[0] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[0] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.198      ;
+; 1.986 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|DbOut                      ; SLEDInterface:u_Sled|TuneReqSr[0]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.207      ;
+; 2.046 ; PWM1_SR[3]                                                                      ; PWM1_SR[2]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.267      ;
+; 2.047 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|iStart     ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[0] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.268      ;
+; 2.057 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[3]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.278      ;
+; 2.093 ; ClkEn_Gen:u_clkDiv|Clk10hzCntr[1]                                               ; ClkEn_Gen:u_clkDiv|Clk10hzCntr[6]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.314      ;
+; 2.107 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[0]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[0]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.328      ;
+; 2.113 ; SLEDInterface:u_Sled|SLEDTimeOut                                                ; SLEDInterface:u_Sled|SLEDStatusOut[8]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.334      ;
+; 2.126 ; SLEDInterface:u_Sled|TimeOutCntr[2]                                             ; SLEDInterface:u_Sled|TimeOutCntr[2]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.347      ;
+; 2.127 ; TestCntr[8]                                                                     ; TestCntr[8]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.348      ;
+; 2.133 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|DbOut                      ; SLEDInterface:u_Sled|SLEDStatusOut[4]                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.354      ;
+; 2.134 ; TestCntr[1]                                                                     ; TestCntr[1]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.355      ;
+; 2.136 ; SLEDInterface:u_Sled|TimeOutCntr[1]                                             ; SLEDInterface:u_Sled|TimeOutCntr[1]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.357      ;
+; 2.141 ; SLEDInterface:u_Sled|TimeOutCntr[0]                                             ; SLEDInterface:u_Sled|TimeOutCntr[0]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.362      ;
+; 2.142 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut                      ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|DbOut                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.363      ;
+; 2.143 ; TestCntr[2]                                                                     ; TestCntr[2]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.364      ;
+; 2.144 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[1]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:0:DeBounce|counter[1]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.365      ;
+; 2.144 ; SLEDInterface:u_Sled|TimeOutCntr[7]                                             ; SLEDInterface:u_Sled|TimeOutCntr[7]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.365      ;
+; 2.145 ; TestCntr[3]                                                                     ; TestCntr[3]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.366      ;
+; 2.145 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[1]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[1]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.366      ;
+; 2.151 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[1] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:3:DeBounce|counter[1] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.372      ;
+; 2.152 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut                      ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|DbOut                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.373      ;
+; 2.159 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut                      ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|DbOut                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.380      ;
+; 2.164 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[1] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[1] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.385      ;
+; 2.169 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[2] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:0:DeBounce|counter[2] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.390      ;
+; 2.170 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[0]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[0]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.391      ;
+; 2.172 ; PWMLkup_s.UFM_Wait_s                                                            ; PWMLkup_s.UFM_Wait_s                                                            ; clock        ; clock       ; 0.000        ; 0.000      ; 2.393      ;
+; 2.181 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|counter[0]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|counter[0]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.402      ;
+; 2.183 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[3]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[3]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.404      ;
+; 2.188 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[0]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[0]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.409      ;
+; 2.191 ; PWMLkup_s.UFM_Shift_s                                                           ; PWMCntr[2]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.412      ;
+; 2.194 ; PWMLkup_s.UFM_Shift_s                                                           ; PWMCntr[1]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.415      ;
+; 2.195 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[0]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:1:DeBounce|counter[0]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.416      ;
+; 2.211 ; ModFlt:u_ModFlt|DeBouncer:DeBounce|counter[0]                                   ; ModFlt:u_ModFlt|DeBouncer:DeBounce|counter[0]                                   ; clock        ; clock       ; 0.000        ; 0.000      ; 2.432      ;
+; 2.212 ; SLEDInterface:u_Sled|TimeOutCntr[3]                                             ; SLEDInterface:u_Sled|TimeOutCntr[3]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.433      ;
+; 2.212 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[0]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.433      ;
+; 2.215 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[0]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.436      ;
+; 2.218 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[0]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.439      ;
+; 2.232 ; TestCntr[4]                                                                     ; TestCntr[4]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.453      ;
+; 2.232 ; FastFaultInterface:u_FastFault|iFaultVectorOut[3]                               ; FastFaultInterface:u_FastFault|iFaultVectorOut[3]                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.453      ;
+; 2.233 ; PWMLkup_s.UFM_Shift_s                                                           ; PWMLkup_s.UFM_Shift_s                                                           ; clock        ; clock       ; 0.000        ; 0.000      ; 2.454      ;
+; 2.233 ; FastFaultInterface:u_FastFault|iFaultVectorOut[0]                               ; FastFaultInterface:u_FastFault|iFaultVectorOut[0]                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.454      ;
+; 2.236 ; PWM0_SR[5]                                                                      ; PWM0_SR[4]                                                                      ; clock        ; clock       ; 0.000        ; 0.000      ; 2.457      ;
+; 2.240 ; FastFaultInterface:u_FastFault|iFaultOut                                        ; FastFaultInterface:u_FastFault|iFaultOut                                        ; clock        ; clock       ; 0.000        ; 0.000      ; 2.461      ;
+; 2.240 ; ModFlt:u_ModFlt|DeBouncer:DeBounce|DbOut                                        ; ModFlt:u_ModFlt|DeBouncer:DeBounce|DbOut                                        ; clock        ; clock       ; 0.000        ; 0.000      ; 2.461      ;
+; 2.249 ; TestCntr[5]                                                                     ; TestCntr[5]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.470      ;
+; 2.249 ; SLEDInterface:u_Sled|TimeOutCntr[5]                                             ; SLEDInterface:u_Sled|TimeOutCntr[5]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.470      ;
+; 2.251 ; SLEDInterface:u_Sled|TimeOutCntr[6]                                             ; SLEDInterface:u_Sled|TimeOutCntr[6]                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 2.472      ;
+; 2.253 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[3]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[3]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.474      ;
+; 2.253 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.474      ;
+; 2.256 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; ClkEn_Gen:u_clkDiv|iClk1KhzEn                                                   ; clock        ; clock       ; 0.000        ; 0.000      ; 2.477      ;
+; 2.257 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[3]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.478      ;
+; 2.258 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|counter[1]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:5:DeBounce|counter[1]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.479      ;
+; 2.259 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|counter[3] ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|counter[3] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.480      ;
+; 2.260 ; TestCntr[7]                                                                     ; TestCntr[7]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.481      ;
+; 2.261 ; TestCntr[6]                                                                     ; TestCntr[6]                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 2.482      ;
+; 2.262 ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|iStart     ; FastFaultInterface:u_FastFault|DeBouncer:\latchFastFaults:2:DeBounce|counter[0] ; clock        ; clock       ; 0.000        ; 0.000      ; 2.483      ;
+; 2.263 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|counter[2]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:3:DeBounce|counter[2]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.484      ;
+; 2.268 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[1]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:4:DeBounce|counter[1]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.489      ;
+; 2.269 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[1]                 ; SLEDInterface:u_Sled|DeBouncer:\latchSled:2:DeBounce|counter[1]                 ; clock        ; clock       ; 0.000        ; 0.000      ; 2.490      ;
+; 2.274 ; PWMLkup_s.UFM_Idle_s                                                            ; PWMLkup_s.UFM_Idle_s                                                            ; clock        ; clock       ; 0.000        ; 0.000      ; 2.495      ;
+; 2.274 ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[1]                                               ; ClkEn_Gen:u_clkDiv|Clk1khzCntr[2]                                               ; clock        ; clock       ; 0.000        ; 0.000      ; 2.495      ;
++-------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 2503     ; 0        ; 0        ; 0        ;
+; clock      ; CMD_CLK  ; 13       ; 0        ; 3        ; 0        ;
+; CMD_CLK    ; CMD_CLK  ; 372      ; 0        ; 10       ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 2503     ; 0        ; 0        ; 0        ;
+; clock      ; CMD_CLK  ; 13       ; 0        ; 3        ; 0        ;
+; CMD_CLK    ; CMD_CLK  ; 372      ; 0        ; 10       ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 2     ; 2    ;
+; Unconstrained Input Ports       ; 17    ; 17   ;
+; Unconstrained Input Port Paths  ; 97    ; 97   ;
+; Unconstrained Output Ports      ; 14    ; 14   ;
+; Unconstrained Output Port Paths ; 31    ; 31   ;
++---------------------------------+-------+------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                ;
++--------------------------------------------------------------------+---------+------+---------------+
+; Target                                                             ; Clock   ; Type ; Status        ;
++--------------------------------------------------------------------+---------+------+---------------+
+; Clock                                                              ; clock   ; Base ; Constrained   ;
+; Cmd_Clk                                                            ; CMD_CLK ; Base ; Constrained   ;
+; PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk1_dffe ;         ; Base ; Unconstrained ;
+; PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk2_dffe ;         ; Base ; Unconstrained ;
++--------------------------------------------------------------------+---------+------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                  ;
++---------------------+--------------------------------------------------------------------------------------+
+; Input Port          ; Comment                                                                              ;
++---------------------+--------------------------------------------------------------------------------------+
+; Beam_I_Over         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Beam_V_Over         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ByPass              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ClrFault            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Cmd_SDI             ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DeTune_Req          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Fault           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Trigger         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Refl_Over           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Tune_Req            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Cmd_CS            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Lower_Detuned     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Lower_Tuned       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Motor_Not_Detuned ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Motor_Not_Tuned   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Upper_Detuned     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Upper_Tuned       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+--------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                              ;
++-----------------+---------------------------------------------------------------------------------------+
+; Output Port     ; Comment                                                                               ;
++-----------------+---------------------------------------------------------------------------------------+
+; Cmd_SDO         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; FaultOut        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Trigger_Out ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_DeTune_En     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_Tune_En       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RFOff           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RFOn_AMC        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SLED_AC_Out_M   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SLED_AC_Out_P   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Ext_Intlk     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                  ;
++---------------------+--------------------------------------------------------------------------------------+
+; Input Port          ; Comment                                                                              ;
++---------------------+--------------------------------------------------------------------------------------+
+; Beam_I_Over         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Beam_V_Over         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ByPass              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ClrFault            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Cmd_SDI             ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DeTune_Req          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Fault           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Trigger         ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Refl_Over           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Tune_Req            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Cmd_CS            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Lower_Detuned     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Lower_Tuned       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Motor_Not_Detuned ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Motor_Not_Tuned   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Upper_Detuned     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Upper_Tuned       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------+--------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                              ;
++-----------------+---------------------------------------------------------------------------------------+
+; Output Port     ; Comment                                                                               ;
++-----------------+---------------------------------------------------------------------------------------+
+; Cmd_SDO         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; FaultOut        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Mod_Trigger_Out ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_DeTune_En     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; N_Tune_En       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RFOff           ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; RFOn_AMC        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SLED_AC_Out_M   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; SLED_AC_Out_P   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; TestPoint[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_Ext_Intlk     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Dec 05 09:06:29 2020
+Info: Command: quartus_sta RFInerlockRTM_a -c RFInerlockRTM_a
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332104): Reading SDC File: 'RFInerlockRTM_a.sdc'
+Warning (332060): Node: PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk2_dffe was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|wire_maxii_ufm_block1_drdout is being clocked by PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk2_dffe
+Warning (332060): Node: PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk1_dffe was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|maxii_ufm_block1~OBSERVABLEADDRESSREGOUT is being clocked by PWM_Lkup:u0|PWM_Lkup_ufm_parallel_0:ufm_parallel_0|gated_clk1_dffe
+Warning (332056): PLL cross checking found inconsistent PLL clock settings:
+    Warning (332056): Node: u0|ufm_parallel_0|maxii_ufm_block1|osc was found missing 1 generated clock that corresponds to a base clock with a period of: 181.818
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.240
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.240              -1.240 CMD_CLK 
+    Info (332119):     0.386               0.000 clock 
+Info (332146): Worst-case hold slack is 1.382
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.382               0.000 CMD_CLK 
+    Info (332119):     1.394               0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 3.734
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     3.734               0.000 clock 
+    Info (332119):     9.734               0.000 CMD_CLK 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 2101848 megabytes
+    Info: Processing ended: Sat Dec 05 09:06:31 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
