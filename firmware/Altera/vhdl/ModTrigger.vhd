@@ -4,7 +4,7 @@
 --
 --  ModTrigger.vhd -
 --
---  Copyright(c) Stanford Linear Accelerator Center 2000
+--  Copyright(c) Stanford Linear Accelerator Center  2000
 --
 --  Author: JEFF OLSEN
 
